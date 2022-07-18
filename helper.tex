@@ -1,0 +1,250 @@
+\documentclass{ctexbook}
+
+%请使用laulatex编译该文档
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{hyperref}%超链接
+\hypersetup{
+	hidelinks,
+	colorlinks=true,
+	linkcolor=red,
+}
+\usepackage{fontawesome}%图标（以字体的形式呈现）
+
+\usetikzlibrary{mindmap,shadows}
+\usepackage[top=2.5cm,bottom=2cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{listings}
+
+\lstset{
+	columns=fixed,       
+	numbers=left,                                        % 在左侧显示行号
+	numberstyle=\tiny\color{gray},                       % 设定行号格式
+	frame=none,                                          % 不显示背景边框
+	backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+	keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+	numberstyle=\footnotesize\color{darkgray},           
+	commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+	stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+	showstringspaces=false,                              % 不显示字符串中的空格
+	language=Tex,                                        % 设置语言
+}
+
+\newcommand{\helpreffist}[1]{
+\text{#1 \quad \hyperlink{#1}{\faForward}}
+}
+
+\newcommand{\helpreflast}[1]{
+\hypertarget{#1}{#1}
+}
+
+\ctexset{
+	section ={
+		format = \raggedright \bfseries \zihao{-4},
+	}
+}
+
+\ctexset{
+	subsection ={
+		format = \raggedright \bfseries,
+	}
+}
+
+\begin{document}
+	
+%题目类型:
+%题目区域:
+%题目难度:
+%思想方法:
+%题目特征:
+%题目备注:	
+
+\chapter{辅助文档}
+
+\section{题目类型}
+\helpreflast{题目类型}	
+	
+	
+	选择 \quad 实验 \quad 填空 \quad 作图 \quad 计算
+
+\section{题目难度}	
+
+\begin{table}[h!]
+ \centering 
+ \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+ \hline 
+0 & 0.5 &1 & 1.5 & 2 &  2.5 & 3 & 3.5 & 4 & 4.5 & 5 & 5.5 & 6 & 6.5 & 7 & 7.5  & 8 & 8.5 & 9 & 9.5 & 10\\ 
+ \hline 
+ \end{tabular}
+ \end{table} 
+
+
+\section{题目区域}
+\hypertarget{题目区域}{题目区域}
+\subsection{一级}
+	
+$  \text{必修1} 
+\left\{
+\begin{array}{l}
+ \text{直线运动}  \\\\
+ \text{相互作用} \\\\
+ \helpreffist{运动定律} \\
+\end{array}
+\right.
+ \quad \text{\hyperlink{思想方法}{\faCheckCircle}}
+ $	
+  \hfil 
+ $  \text{必修2} 
+ \left\{
+\begin{array}{l}
+  \helpreffist{曲线运动} \\\\
+ \text{万有引力} \\\\
+ \helpreffist{能量守恒}\\\\
+  \text{相对论} \\
+ \end{array}
+ \right.
+ \quad \text{\hyperlink{思想方法}{\faCheckCircle}}
+ $	
+  \hfil 
+$  
+\begin{array}{l}
+\text{必修3} \\
+\text{选修2} 
+\end{array}
+\left\{
+\begin{array}{l}
+\helpreffist{电场} \\\\
+\text{电路} \\\\
+ \helpreffist{磁场} \\\\
+\helpreffist{电磁感应} \\\\
+ \text{电磁波} \\
+\end{array}
+\right.
+\quad \text{\hyperlink{思想方法}{\faCheckCircle}}
+$
+
+$  
+ \text{选修1}
+\left\{
+\begin{array}{l}
+ \helpreffist{动量} \\\\
+  \helpreffist{机械波} \\\\
+\helpreffist{光学} \\
+\end{array}
+\right.
+\quad \text{\hyperlink{思想方法}{\faCheckCircle}}
+$
+\hfil
+$  
+\text{选修3}
+\left\{
+\begin{array}{l}
+\text{分子动理论} \\\\
+\helpreffist{热学} \\\\
+\text{原子物理} \\\\
+ \text{波粒二象性} \\
+\end{array}
+\right.
+\quad \text{\hyperlink{思想方法}{\faCheckCircle}}
+$
+
+
+\newpage
+\subsection{二级}
+\begin{enumerate}
+	%\renewcommand{\labelenumi}{\arabic{enumi}.}
+	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
+	%设定全局标号series=example	%引用全局变量resume=example
+	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
+	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
+\item [必修1  \quad ]
+
+\helpreflast{运动定律}： \\\\
+\hyperlink{题目区域}{\faBackward}  \quad  \quad 牛一律  \quad 牛二律  \quad 牛三律  \quad 超重失重 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\item [必修2  \quad ]
+
+\helpreflast{曲线运动}： \\\\
+ \hyperlink{题目区域}{\faBackward}  \quad  \quad  平抛  \quad 斜抛 \quad 圆周 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\helpreflast{能量守恒}： \\\\
+  \hyperlink{题目区域}{\faBackward}   \quad  \quad 功与功率 \quad  \quad  动能定理 \quad 机械能守恒	 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\item [必3  选2  \quad ]
+
+\helpreflast{电场}： \\\\
+  \hyperlink{题目区域}{\faBackward}  \quad  \quad  电场强度 \quad 电势能 \quad 电容器 \quad 电场中带电粒子的运动 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\helpreflast{磁场}：\\\\
+\hyperlink{题目区域}{\faBackward}  \quad  \quad 安培力  \quad 磁场中带电粒子的运动 \quad \quad \hyperlink{思想方法}{\faForward}
+
+
+
+\newpage
+
+\helpreflast{电磁感应}： \\\\
+ \hyperlink{题目区域}{\faBackward}  \quad  \quad   楞次定律 \quad 电磁感应定律 \quad 变压器与高压输电 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\item [选修1  \quad ]
+
+\helpreflast{动量}：\\\\\
+ \hyperlink{题目区域}{\faBackward}  \quad  \quad  动量定理 \quad 动量守恒 \quad \quad \hyperlink{思想方法}{\faForward}
+
+
+\newpage
+\helpreflast{光学}：\\\\\
+\hyperlink{题目区域}{\faBackward}  \quad  \quad  光的折射 \quad 光的干涉 \quad 光的衍射 \quad \quad \hyperlink{思想方法}{\faForward}
+
+
+
+\newpage
+
+\helpreflast{机械波}： \\\\
+  \hyperlink{题目区域}{\faBackward}  \quad  \quad  单摆 \quad 波的描述 \quad 多普勒效应 \quad 波的干涉 \quad \quad \hyperlink{思想方法}{\faForward}
+
+\newpage
+
+\item [选修3  \quad ]
+\helpreflast{热学}： \\\\
+ \hyperlink{题目区域}{\faBackward}  \quad  \quad   热力学第一定律 \quad 热力学第二定律 \quad 理想气体状态方程  \quad \quad \hyperlink{思想方法}{\faForward}
+
+
+\newpage
+
+\end{enumerate}
+
+
+
+\hypertarget{思想方法}{思想方法}
+
+
+\section{思想方法}
+
+
+	等效 \quad 类比 \quad 相似 \quad 微元 \quad 对称 \quad 极限 \quad 假设 \quad 比例 
+	
+	 量纲 \quad 整体 \quad 隔离 \quad 函数 \quad 几何 \quad 参考系变换 \quad 小量近似
+
+
+\section{题目特征}
+
+图像选择 \quad 图像分析 \quad 材料分析 \quad 计算练习 \quad 物理学史
+
+
+\section{题目备注} 
+
+回首页  $ \rightarrow $ \helpreffist{题目类型}
+
+\end{document}

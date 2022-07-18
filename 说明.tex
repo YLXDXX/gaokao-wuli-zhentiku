@@ -1,0 +1,360 @@
+\documentclass{ctexbook}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,shadows}
+\usepackage[top=2.5cm,bottom=2cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{listings}
+
+\lstset{
+	columns=fixed,       
+	numbers=left,                                        % 在左侧显示行号
+	numberstyle=\tiny\color{gray},                       % 设定行号格式
+	frame=none,                                          % 不显示背景边框
+	backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+	keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+	numberstyle=\footnotesize\color{darkgray},           
+	commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+	stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+	showstringspaces=false,                              % 不显示字符串中的空格
+	language=Tex,                                        % 设置语言
+}
+
+\begin{document}
+%\chapter{高考真题库建立细则}	
+
+\chapter{高考真题库建立初步细则}	
+
+高考历时多年，高考真题的数量已足够多，其质量自然是不言而谕，愚欲以历年的高考真题建立一套题库，供备课选题之用。为了后续的程序处理，摘录题的时候需要遵循相应的规则，现将规则阐述如下：
+\section{必备项}
+此选项为每一道题必须录入的信息。具体包含如下类型：
+\begin{enumerate}
+	\renewcommand{\labelenumi}{\arabic{enumi}.}
+	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
+	%设定全局标号series=example	%引用全局变量resume=example
+	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
+	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
+	\item
+题目编号
+
+该题在原真题试卷的题目顺序编号，不采用理综的真实编号，采用顺序编号，可选值依次为：01、02、03、04……
+
+\item 
+题目年份
+
+可选值：…2018、2019、2020…
+
+\item 
+题目属地
+
+可选值为：全国1、全国2、全国3、四川、浙江、北京……
+
+
+\item 
+题目类型
+
+该题的题型，可选值为：选择、实验、填空、作图、计算。
+
+\item 
+题目区域（一级）
+
+分为一级区域和二级区域，其中一级区域为必备选项，二级区域为可选选项。一级区域分类参见图 \ref{题目区域：一级区域}，一级区域的关键词记为题目区域的可选值	。
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	[mindmap,
+	grow cyclic,
+	every node/.style={concept,circular drop shadow,},
+	concept color=teal!40,
+	%当分支挤到一起时候作手动调节用
+	level 1/.append style={level distance=5.5cm,sibling angle=360/5},
+	%level 2/.append style={sibling angle=37.5},
+	]
+	\node [root concept] {区域\\关键词}
+	%对child可以使用rotate=-10作手动调节
+	%child [concept color=red!40, rotate=-10]
+	%对第一阶child的伸展可使用counterclockwise from=-115来调节整体的旋转
+	%node  {Cultural Factors}[counterclockwise from=-115]
+	child [concept color=purple!40]{
+		node    {必修1}
+		child { node    {直线运动} }
+		child { node    {相互作用} }
+		child { node    {运动定律} }
+	}
+	child [concept color=pink!40]{
+		node     {必修2}
+		child { node    {曲线运动} 
+			%child  { node {平抛} }	
+			%child  { node {圆周} }		
+		}
+		child { node    {万有引力} }
+		child { node    {能量守恒} 
+			%child  { node {动能定理} }	
+			%child  { node {机械能守恒} }		
+		}
+		child { node    {相对论} }
+	}
+	child [concept color=green!40,rotate=7]{
+		node  {必修3\\选修2}
+		child { node {电场} }
+		child { node {电路} }
+		child { node {磁场} }
+		child { node {电磁感应} 
+			%child  { node {楞次定律} }
+			%child  { node {电磁感应定律} }		
+			%child  { node {变压器} }		
+		}
+		child { node {电磁波} }
+	}
+	child [concept color=red!40]{
+		node  {选修1}
+		child  { node {动量} }
+		child { node {机械波} 
+			%child  { node {多普勒效应} }	
+			%child  { node {干涉} }	
+		}
+		child { node {光学} }
+	}
+	child [concept color=violet!40] {
+		node {选修3}
+		child { node {分子动理论} }
+		child { node {热学} }
+		child { node {原子物理} }
+		child { node {波粒二象性} }
+	}
+	;
+	\end{tikzpicture}
+	\caption{一级区域}\label{题目区域：一级区域}
+\end{figure}
+
+	
+	
+	
+\end{enumerate}
+
+\noindent
+题目编号、题目年份、题目属地三者采用自动填充完成，只需要保证每张高考试卷的命名规范即可。
+
+\newpage
+\section{可选项}
+	
+此选项是为进一步增加题库的易用性，还待补充完善，可根据实际情况作相应添加。
+
+\begin{enumerate}
+	\renewcommand{\labelenumi}{\arabic{enumi}.}
+	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
+	%设定全局标号series=example	%引用全局变量resume=example
+	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
+	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
+\item 
+题目难度
+
+题目的难度系数为0 --- 9共10个等级，0表示极难，考试中只有千分之一或者万分之一的学生能将此题作出，9表示极易，百分之95及以上的学生都能将此题作出（其中的百分比可参考本省整体实力的正态分布）。
+可选值为：0、1 …  8、9。
+
+	\item
+	思想方法
+	
+	按照物理思想和物理上常用方法进行分类，关键词有：等效、类比、相似、微元、对称、极限、假设、比例、量纲、整体、隔离、参考系变换、小量近似等。
+	
+	注：相对运动与参考系变换等效，不再单独区分。
+	\item 
+	题目区域（二级）
+	
+	例如：能量守恒下面可以再细分为动能定理、机械能守恒等。具体还待完善 。可参照图 \ref{题目区域：二级区域}。
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+[mindmap,
+grow cyclic,
+every node/.style={concept,circular drop shadow,},
+concept color=teal!40,
+%当分支挤到一起时候作手动调节用
+level 1/.append style={level distance=6.5cm,sibling angle=360/5},
+%level 2/.append style={sibling angle=37.5},
+]
+\node [root concept] {区域\\关键词}
+%对child可以使用rotate=-10作手动调节
+%child [concept color=red!40, rotate=-10]
+%对第一阶child的伸展可使用counterclockwise from=-115来调节整体的旋转
+%node  {Cultural Factors}[counterclockwise from=-115]
+child [concept color=purple!40]{
+	node    {必修1}
+	child { node    {直线运动} }
+	child { node    {相互作用} }
+	child { node    {运动定律} }
+}
+child [concept color=pink!40]{
+	node     {必修2}
+	child { node    {曲线运动} 
+		child  { node {平抛} }	
+		child  { node {圆周} }		
+	}
+	child { node    {万有引力} }
+	child { node    {能量守恒} 
+		child  { node {动能定理} }	
+		child  { node {机械能守恒} }		
+	}
+	child { node    {相对论} }
+}
+child [concept color=green!40,rotate=7]{
+	node  {必修3\\选修2}
+	child { node {电场} 
+		child  { node {电场强度} }
+		child  { node {电势能} }
+		child  { node {电容器} }
+	}
+	child { node {电路} }
+	child { node {磁场} }
+	child { node {电磁感应} 
+		child  { node {楞次定律} }
+		child  { node {电磁感应定律} }		
+		child  { node {变压器与高压输电} }		
+	}
+	child { node {电磁波} }
+}
+child [concept color=red!40]{
+	node  {选修1}
+	child  { node {动量} }
+	child { node {机械波} 
+		child  { node {单摆}}
+		child  { node {多普勒效应} }	
+		child  { node {干涉} }		
+	}
+	child { node {光学} }
+}
+	child [concept color=violet!40] {
+		node {选修3}
+		child { node {分子动理论} }
+		child { node {热学} 
+			child  { node {热力学第一定律}	}
+			child  { node {热力学第二定律} }
+			child  { node {理想气体状态方程} }
+		}
+		child { node {原子物理} }
+		child { node {波粒二象性} }
+	}
+	;
+	\end{tikzpicture}
+	\caption{二级区域}\label{题目区域：二级区域}
+\end{figure}
+
+
+\item 
+题目特征
+
+针对选择题的图像问题来说存在两类问题：图像问题和图像分析问题，图像问题典型的是四个选项均为图像，选择恰当的图像；而图像分析一般是用根据所给的图表作为分析问题的切入点。（注意与一般所给的示意图作为题目说明不同）
+
+关键词：图像选择、图像分析、材料分析、计算练习、物理学史。
+
+
+注：其中的计算练习特征为题目难度不大，方法一般，但计算量大，易算错，可作为计算练习用。
+
+\item 
+题目备注
+
+对一些题目给的提示、技巧解析等，可自由发挥。
+
+
+\end{enumerate}
+
+
+\noindent
+以2020全国1卷的第1题举例，源码如下（分隔符为英文冒号）：
+\begin{lstlisting}
+\item
+行驶中的汽车如果发生剧烈碰撞,车内的安全气囊会被弹出并瞬间充满气体,若碰
+撞后汽车的速度在很短时间内减小为零,关于安全气囊在此过程中的作用,下列说
+法正确的是 \xzanswer{D} 
+
+\fourchoices
+{增加了司机单位面积的受力大小}
+{减少了碰撞前后司机动量的变化量}
+{将司机的动能全部转换成汽车的动能}
+{延长了司机的受力时间并增大了司机的受力面积}
+
+%题目类型:选择
+%题目区域:动量:冲量
+%题目难度:9
+%思想方法:
+%题目特征:
+
+\end{lstlisting}
+
+\section{录入格式说明}
+\subsection{基本部分}
+每张试卷共有头部、选择、实验、计算、选修几个部分组成，以前地方卷没有选修的不用加入，共有如下几个命令（去每个部分的英文缩写）：
+\begin{lstlisting}
+\gaokaoheader{2020}{全国\lmd{2}卷}
+\gaokaoxz
+\gaokaosy
+\gaokaojs
+\gaokaoxx{$ 3 - 4 $}
+\end{lstlisting}
+
+其中的 header 部分带两个参数，一个是年份，一个是试卷所属地。其中选修部分带一个参数，为选修对应的书本名称编号。注意，其中的选修在原卷中一般是一个大题两个小问，在实际操作中需要在选修的大题好下加入一个选修的注释，具体如下：
+\begin{lstlisting}
+\item 
+%选修 $ 3 - 4 $
+\begin{enumerate}
+\item
+....
+\end{enumerate}
+\end{lstlisting}
+
+\subsection{图片相关}
+图片的编号与题目项关联，题目编号刷新，图片编号重新计数。采用图1、图2的方式显示，对于一些有子图的题目，对子图的编号按照$ (a) $、$ (b) $、$ (c) $的顺序进行。题中对于图片或者子图的引用最好使用原生引用的方法，而不是使用直接书写的方法。例如下面：
+\begin{lstlisting}
+\item 
+（$ 9 $ 分）
+用图 \ref{2020:北京16:1} 所示的 \subref{2020:北京16:1a} 、
+ \subref{2020:北京16:1b} 两种方法测量某电源的电动势和内...
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.4\linewidth}
+\centering
+\includesvg[width=0.7\linewidth]{picture/svg/GZ-3-tiyou-0797} 
+\caption{}\label{2020:北京:16:1a}
+\end{subfigure}
+\hfil
+\begin{subfigure}{0.4\linewidth}
+\centering
+\includesvg[width=0.7\linewidth]{picture/svg/GZ-3-tiyou-0798} 
+\caption{}\label{2020:北京:16:1b}
+\end{subfigure}
+\caption{}\label{2020:北京:16:1}
+\end{figure}	
+\end{lstlisting}
+
+另外标号（lable）的设定可参照上面代码的方式，可以根据编号直接定位题号，也可以根据题目直接写出其引用的lable。
+
+\subsection{其它说明}
+
+\begin{enumerate}
+	%\renewcommand{\labelenumi}{\arabic{enumi}.}
+	% A(\Alph) a(\alph) I(\Roman) i(\roman) 1(\arabic)
+	%设定全局标号series=example	%引用全局变量resume=example
+	%[topsep=-0.3em,parsep=-0.3em,itemsep=-0.3em,partopsep=-0.3em]
+	%可使用leftmargin调整列表环境左边的空白长度 [leftmargin=0em]
+	\item
+题目中有关分值的信息不保留。
+\item 
+选修部分，一般一道题里面包含两个小题，在做答案的时候这两道小题分开做，各做各的，方便以后对选修相关题目的拆分。
+另外选修部分题目的标注是对每个小题进行单独标注。
+
+
+\item 
+A4的排版与A3的没有差别，编译不同的版式不会导致格式的差异变化。但应当注意的是在排版的过程中以解答做题方便为主，不需要太过追求内容的连续，该分页的时候果断分页。	
+
+\item 
+在排版的过程中少用\lstinline|\vspace{-1em}|之类。
+
+
+\item 
+在标号的引用过程中直接引用即可\lstinline|\ref{2020:北京:16:1}|前后最好用空格与其它内容隔开，不需要加其它的格式（例如括号之类），后面如果需要该相应的格式或者标号统一在模板文件里面修改即可。
+
+\end{enumerate}
+
+
+
+\end{document}
